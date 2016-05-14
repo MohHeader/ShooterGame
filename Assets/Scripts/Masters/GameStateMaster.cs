@@ -19,7 +19,7 @@ public class GameStateMaster : MonoBehaviour {
 
 	void Start(){
 //		state = GameState.NotStarted;
-		state = GameState.Playing;
+		Invoke("StartGame", 1);
 	}
 
 	void OnDestroy(){
@@ -27,16 +27,20 @@ public class GameStateMaster : MonoBehaviour {
 	}
 
 	void StartGame(){
+		print ("Game Started");
+		state = GameState.Playing;
 		if (OnGameStart != null)
 			OnGameStart ();
 	}
 
 	void PauseGame(){
+		state = GameState.Pause;
 		if (OnGamePause != null)
 			OnGamePause ();
 	}
 
 	public void EndGame(){
+		state = GameState.GameOver;
 		print ("GameOver");
 
 		if (OnGameEnd != null)

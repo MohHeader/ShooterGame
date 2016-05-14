@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Resetable))]
 public class Health : MonoBehaviour {
 	[Range(1, 99)]
 	[SerializeField]
@@ -12,12 +13,14 @@ public class Health : MonoBehaviour {
 	public event System.Action<float> OnHealthChange;
 
 	void Start(){
-		GameStateMaster.Instance.OnGameStart += Reset;
-		Reset ();
+		GetComponent<Resetable> ().OnReset += Reset;		
 	}
 
 	void Reset(){
 		CurrentHealth = MaxHealth;
+
+		if (OnHealthChange != null)
+			OnHealthChange (GetCurrentHealthPerecntage());
 	}
 
 	public void ChangeHealthBy(float delta){
