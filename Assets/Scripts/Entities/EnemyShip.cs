@@ -30,6 +30,4 @@ public class EnemyShip : MonoBehaviour {
 	public void Reset(){
 		resetable.Reset ();
 	}
-
-
 }

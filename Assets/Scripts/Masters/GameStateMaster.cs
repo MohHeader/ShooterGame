@@ -26,17 +26,22 @@ public class GameStateMaster : MonoBehaviour {
 		Instance = null;
 	}
 
-	void StartGame(){
-		print ("Game Started");
+	public void StartGame(){
 		state = GameState.Playing;
 		if (OnGameStart != null)
 			OnGameStart ();
 	}
 
-	void PauseGame(){
+	public void PauseGame(){
 		state = GameState.Pause;
 		if (OnGamePause != null)
 			OnGamePause ();
+	}
+
+	public void ResumeGame(){
+		state = GameState.Playing;
+		if (OnGameResume != null)
+			OnGameResume ();
 	}
 
 	public void EndGame(){
@@ -57,5 +62,6 @@ public class GameStateMaster : MonoBehaviour {
 
 	public event System.Action OnGameStart;
 	public event System.Action OnGamePause;
+	public event System.Action OnGameResume;
 	public event System.Action OnGameEnd;
 }

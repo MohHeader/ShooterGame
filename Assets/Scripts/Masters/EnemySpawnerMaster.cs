@@ -2,18 +2,13 @@
 using System.Collections;
 
 public class EnemySpawnerMaster : MonoBehaviour {
-	public GameObject[] prefabs;
+	public GameObject prefab;
 
-	float toSpawn;
+	float toSpawnTimer;
+	float timer;
 
-	void Start () {
-		toSpawn = Random.Range (1f, 4f);
-		Invoke ("Spawn", toSpawn);
-	}
-	
 	void Spawn(){
-		
-		GameObject go = SimplePool.Spawn (prefabs [0], Vector3.zero, Quaternion.identity);
+		GameObject go = SimplePool.Spawn (prefab, Vector3.zero, Quaternion.identity);
 		EnemyShip ship =  go.GetComponent<EnemyShip>();
 
 		if (ship == null) {
@@ -23,8 +18,19 @@ public class EnemySpawnerMaster : MonoBehaviour {
 			ship.SetPlayerShip (GameObject.FindObjectOfType<PlayerShip> ());
 			ship.Reset ();
 		}
+	}
 
-		toSpawn = Random.Range (1f, 1f);
-		Invoke ("Spawn", toSpawn);
+	void Update(){
+		if (GameStateMaster.IsPlaying () == false)
+			return;
+		
+		timer += Time.deltaTime;
+
+		if (timer >= toSpawnTimer) {
+			timer = 0;
+			toSpawnTimer = Random.Range (1f, 2f);
+
+			Spawn ();
+		}
 	}
 }

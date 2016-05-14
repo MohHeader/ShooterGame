@@ -8,6 +8,9 @@ public class ScoreComboMaster : MonoBehaviour {
 
 	void Start () {
 		ScoreMaster.Instance.OnScoreChange += ScoreChange;
+		GameStateMaster.Instance.OnGameStart += delegate() {
+			CancelInvoke("StopComboMode");
+		};
 	}
 	
 	void ScoreChange (int score) {

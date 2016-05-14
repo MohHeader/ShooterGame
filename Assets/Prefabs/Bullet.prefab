@@ -14,6 +14,8 @@ GameObject:
   - 114: {fileID: 11482964}
   - 114: {fileID: 11428650}
   - 114: {fileID: 11414756}
+  - 114: {fileID: 11465756}
+  - 114: {fileID: 11435802}
   m_Layer: 9
   m_Name: Bullet
   m_TagString: Untagged
@@ -111,6 +113,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd243d411b21c4b728ea18d95d70bed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11435802
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b66548f2d5f48b28562681ae38ed35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11450896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,6 +138,17 @@ MonoBehaviour:
   Amount: 1
   SelfDestroy: 1
   EnemyTag: Enemy
+--- !u!114 &11465756
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c9247570345c45548c22aa59e2c9e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11482964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -133,7 +157,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 138850}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7723a94d89cab4cb39f186aca0609c2c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e1b1098bb88840a2965a7295d72ec66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 20

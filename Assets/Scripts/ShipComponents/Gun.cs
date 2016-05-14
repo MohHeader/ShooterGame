@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Gun : MonoBehaviour {
 	public GameObject Bullet;
+	public BulletData data;
+
 	public float Frequency;
 	float untilFrequency = 0;
 
@@ -15,11 +17,18 @@ public class Gun : MonoBehaviour {
 	}
 
 	void Update () {
+		if (GameStateMaster.IsPlaying () == false)
+			return;
+		
 		untilFrequency += Time.deltaTime;
 
 		if (untilFrequency >= Frequency &&  Input.GetButton ("Fire1")) {
 			untilFrequency = 0;
-			SimplePool.Spawn (Bullet, transform.position, Quaternion.identity).transform.SetParent (BulletsParent);
+
+			GameObject go = SimplePool.Spawn (Bullet, transform.position, Quaternion.identity);
+			go.transform.SetParent (BulletsParent);
+
+			go.GetComponent<Bullet> ().SetDate (data);
 		}
 	}
 }
