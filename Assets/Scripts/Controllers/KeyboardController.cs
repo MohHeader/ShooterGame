@@ -7,11 +7,11 @@ public class KeyboardController : MonoBehaviour {
 
 	void Update () {
 		if (GameStateMaster.IsPlaying ()) {
-			Horizontal = Input.GetAxis ("Horizontal");
-			Vertical = Input.GetAxis ("Vertical");
+			Horizontal = Input.GetAxisRaw ("Horizontal");
+			Vertical = Input.GetAxisRaw ("Vertical");
 
 			if (OnControllerSet != null)
-				OnControllerSet (Horizontal, Vertical);
+				OnControllerSet (new Vector3(Horizontal, Vertical, 0));
 
 		} else {
 			Horizontal = 0;
@@ -19,5 +19,5 @@ public class KeyboardController : MonoBehaviour {
 		}
 	}
 
-	public event System.Action<float, float> OnControllerSet;
+	public event System.Action<Vector3> OnControllerSet;
 }

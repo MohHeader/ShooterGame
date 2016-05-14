@@ -36,7 +36,9 @@ public class GameStateMaster : MonoBehaviour {
 			OnGamePause ();
 	}
 
-	void EndGame(){
+	public void EndGame(){
+		print ("GameOver");
+
 		if (OnGameEnd != null)
 			OnGameEnd ();
 	}
