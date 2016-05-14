@@ -28,11 +28,13 @@ GameObject:
   - 114: {fileID: 11498650}
   - 114: {fileID: 11499910}
   - 114: {fileID: 11477252}
-  - 114: {fileID: 11492486}
   - 114: {fileID: 11400866}
   - 114: {fileID: 11428772}
   - 114: {fileID: 11470544}
   - 114: {fileID: 11443682}
+  - 114: {fileID: 11439372}
+  - 50: {fileID: 5001476}
+  - 114: {fileID: 11484140}
   m_Layer: 8
   m_Name: Kamikaze
   m_TagString: Enemy
@@ -65,6 +67,23 @@ Transform:
   - {fileID: 400706}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5001476
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175440}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!60 &6048584
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -103,10 +122,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 175440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7a5ec53725c24143bec442a7b737e79, type: 3}
+  m_Script: {fileID: 11500000, guid: cd243d411b21c4b728ea18d95d70bed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 12
+--- !u!114 &11439372
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3951f9042eba4a35a51dfc7484f5ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Amount: 1
+  SelfDestroy: 1
+  EnemyTag: Player
 --- !u!114 &11443682
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -118,6 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd984e58a92ec4c208498fa84d034884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BottomZone: 1
+  TopZone: 0
 --- !u!114 &11470544
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -140,8 +174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa7f8a750cda4b9094f3fbfaae95ff2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 2
---- !u!114 &11492486
+  MaxHealth: 1
+--- !u!114 &11484140
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -149,9 +183,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 175440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd243d411b21c4b728ea18d95d70bed1, type: 3}
+  m_Script: {fileID: 11500000, guid: 7723a94d89cab4cb39f186aca0609c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Speed: 20
 --- !u!114 &11498650
 MonoBehaviour:
   m_ObjectHideFlags: 1

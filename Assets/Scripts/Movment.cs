@@ -2,7 +2,7 @@
 using System.Collections;
 
 [RequireComponent(typeof(Resetable))]
-public class ShipMovment : MonoBehaviour {
+public class Movment : MonoBehaviour {
 	
 	public float Speed 	= 	1;
 

@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(ShipMovment))]
+[RequireComponent(typeof(Movment))]
 public class MoveInDirection : MonoBehaviour {
-	ShipMovment movment;
-	Vector3 direction;
+	Movment movment;
+	Vector3 direction = Vector3.up;
 
 	void Awake(){
-		movment = GetComponent<ShipMovment> ();
+		movment = GetComponent<Movment> ();
 	}
 
 	void Update () {

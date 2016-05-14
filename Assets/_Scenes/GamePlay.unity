@@ -124,6 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 984cafebde2b64037913122c0df06f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Bullet: {fileID: 138850, guid: 6806ad7d79ef840f39712e4745fe2ebd, type: 2}
+  Frequency: 0.2
 --- !u!1 &360018520
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +226,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 492926717}
-  - 114: {fileID: 492926718}
   m_Layer: 0
   m_Name: BonusGun
   m_TagString: Untagged
@@ -246,17 +247,6 @@ Transform:
   - {fileID: 586299506}
   m_Father: {fileID: 590231803}
   m_RootOrder: 1
---- !u!114 &492926718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 492926716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 984cafebde2b64037913122c0df06f05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &586299505
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,6 +255,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 586299506}
+  - 114: {fileID: 586299507}
   m_Layer: 0
   m_Name: Emiter 2
   m_TagString: Untagged
@@ -284,6 +275,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 492926717}
   m_RootOrder: 1
+--- !u!114 &586299507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 586299505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 984cafebde2b64037913122c0df06f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet: {fileID: 138850, guid: 1438ccbc9015448189e7ef952c4e08d5, type: 2}
+  Frequency: 0.1
 --- !u!1 &590231802
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,10 +450,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 825724640}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7a5ec53725c24143bec442a7b737e79, type: 3}
+  m_Script: {fileID: 11500000, guid: 7723a94d89cab4cb39f186aca0609c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
+  Speed: 15
 --- !u!114 &825724645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -679,6 +683,33 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1266319842}
+--- !u!1 &1471503458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1471503459}
+  m_Layer: 0
+  m_Name: Bullets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1471503459
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1471503458}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
 --- !u!1 &1570663446
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,6 +915,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1939136627}
+  - 114: {fileID: 1939136628}
   m_Layer: 0
   m_Name: Emiter 1
   m_TagString: Untagged
@@ -903,6 +935,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 492926717}
   m_RootOrder: 0
+--- !u!114 &1939136628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1939136626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 984cafebde2b64037913122c0df06f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet: {fileID: 138850, guid: 1438ccbc9015448189e7ef952c4e08d5, type: 2}
+  Frequency: 0.1
 --- !u!1 &2003688349
 GameObject:
   m_ObjectHideFlags: 0
