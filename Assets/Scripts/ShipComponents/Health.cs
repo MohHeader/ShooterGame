@@ -4,16 +4,24 @@ using System.Collections;
 [RequireComponent(typeof(Resetable))]
 public class Health : MonoBehaviour {
 	[Range(1, 99)]
-	[SerializeField]
-	protected float MaxHealth 		=	1;
-
+	public float MaxHealth;
 	public float CurrentHealth { get; protected set; }
+
+	Resetable resetable;
 
 	// Events
 	public event System.Action<float> OnHealthChange;
 
-	void Start(){
-		GetComponent<Resetable> ().OnReset += Reset;		
+	void Awake(){
+		resetable = GetComponent<Resetable> ();
+	}
+
+	void OnEnable(){
+		resetable.OnReset += Reset;		
+	}
+
+	void OnDisable(){
+		resetable.OnReset -= Reset;
 	}
 
 	void Reset(){

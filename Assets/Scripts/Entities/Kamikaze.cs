@@ -1,20 +1,40 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(MoveInDirection))]
 [RequireComponent(typeof(EnemyShip))]
+[RequireComponent(typeof(MoveInDirection))]
+[RequireComponent(typeof(RotateToTarget))]
 [RequireComponent(typeof(Resetable))]
 public class Kamikaze : MonoBehaviour {
 
-	void Awake () {
-		EnemyShip ship = GetComponent<EnemyShip> ();
-		MoveInDirection movement = GetComponent<MoveInDirection> ();
-		RotateToTarget rotate = GetComponent<RotateToTarget> ();
+	EnemyShip ship;
+	MoveInDirection movement;
+	RotateToTarget rotate;
+	Resetable resetable;
 
-		GetComponent<Resetable>().OnReset += delegate() {
-			transform.position = SpawnerHelper.WideTop() + Vector3.up;
-			movement.SetTarget(ship.player.transform);
-			rotate.SetTarget(ship.player.transform);
-		};
+	void Awake () {
+		ship		= GetComponent<EnemyShip> ();
+		movement	= GetComponent<MoveInDirection> ();
+		rotate		= GetComponent<RotateToTarget> ();
+		resetable	= GetComponent<Resetable> ();
+	}
+
+	void OnEnable(){
+		resetable.OnReset += Reset;
+	}
+
+	void OnDisable(){
+		resetable.OnReset -= Reset;
+	}
+
+	void Reset(){
+		if(ship.player == null){
+			Debug.LogError("Enemy Ship with no Target Player !");
+			return;
+		}
+
+		transform.position = SpawnerHelper.WideTop() + Vector3.up;
+		movement.SetTarget(ship.player.transform);
+		rotate.SetTarget(ship.player.transform);
 	}
 }

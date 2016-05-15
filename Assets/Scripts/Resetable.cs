@@ -5,8 +5,13 @@ public class Resetable : MonoBehaviour {
 
 	public event System.Action OnReset;
 
-	void Start(){
+	void OnEnable(){
 		GameStateMaster.Instance.OnGameStart += Reset;
+	}
+
+	void OnDisable(){
+		if(GameStateMaster.Instance != null)
+			GameStateMaster.Instance.OnGameStart -= Reset;
 	}
 
 	public void Reset(){

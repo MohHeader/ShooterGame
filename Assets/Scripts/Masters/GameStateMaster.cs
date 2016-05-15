@@ -18,7 +18,7 @@ public class GameStateMaster : MonoBehaviour {
 	}
 
 	void Start(){
-//		state = GameState.NotStarted;
+		state = GameState.NotStarted;
 		Invoke("StartGame", 1);
 	}
 
@@ -46,7 +46,6 @@ public class GameStateMaster : MonoBehaviour {
 
 	public void EndGame(){
 		state = GameState.GameOver;
-		print ("GameOver");
 
 		if (OnGameEnd != null)
 			OnGameEnd ();

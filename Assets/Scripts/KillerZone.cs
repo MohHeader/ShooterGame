@@ -5,6 +5,9 @@ public class KillerZone : MonoBehaviour {
 	public bool BottomZone;
 	public bool TopZone;
 
+	public bool RightZone;
+	public bool LeftZone;
+
 	Vector3 Size;
 
 	void Awake(){
@@ -16,8 +19,13 @@ public class KillerZone : MonoBehaviour {
 		if (BottomZone && transform.position.y < - Size.y) {
 			SimplePool.Despawn (gameObject);
 		}
-
-		if (TopZone && transform.position.y > Size.y) {
+		else if (TopZone && transform.position.y > Size.y) {
+			SimplePool.Despawn (gameObject);
+		}
+		else if (RightZone && transform.position.x > Size.x) {
+			SimplePool.Despawn (gameObject);
+		}
+		else if (LeftZone && transform.position.x < - Size.x) {
 			SimplePool.Despawn (gameObject);
 		}
 	}

@@ -12,7 +12,7 @@ public class Gun : MonoBehaviour {
 
 	void Awake(){
 		if (BulletsParent == null) {
-			BulletsParent = GameObject.Find ("Bullets").transform;
+			BulletsParent = GameObject.Find ("Bullets PlaceHolder").transform;
 		}
 	}
 

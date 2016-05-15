@@ -5,8 +5,12 @@ using System.Collections;
 public class AddScoreOnHit : MonoBehaviour {
 	public int ScoreToAdd;
 
-	void Awake () {
+	void OnEnable () {
 		GetComponent<EnemyShip> ().OnShipDestroyed += Hit;
+	}
+
+	void OnDisable () {
+		GetComponent<EnemyShip> ().OnShipDestroyed -= Hit;
 	}
 
 	void Hit () {
