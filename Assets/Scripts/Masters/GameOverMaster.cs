@@ -8,9 +8,13 @@ public class GameOverMaster : MonoBehaviour {
 	void Awake () {
 		Ship.OnHealthChange += delegate(float percentage) {
 			if(percentage <= 0){
-				GameStateMaster.Instance.EndGame();
-				UI.Show();
+				Invoke("GameOver", 0.25f);
 			}
 		};
+	}
+
+	void GameOver(){
+		GameStateMaster.Instance.EndGame();
+		UI.Show();
 	}
 }

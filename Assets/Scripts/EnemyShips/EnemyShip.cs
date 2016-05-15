@@ -2,6 +2,7 @@
 using System.Collections;
 
 [RequireComponent(typeof(Resetable))]
+[RequireComponent(typeof(DespawnOnReset))]
 public class EnemyShip : MonoBehaviour {
 	public PlayerShip player { get; protected set; }
 	Resetable resetable;

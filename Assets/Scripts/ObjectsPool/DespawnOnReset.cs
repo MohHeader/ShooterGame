@@ -2,13 +2,13 @@
 using System.Collections;
 
 /// <summary>
-/// if attached to a GameObject, Will Despawn self on Reset.
+/// if attached to a GameObject, Will Despawn self on OnGameStart.
 /// </summary>
 
 [RequireComponent(typeof(Resetable))]
 public class DespawnOnReset : MonoBehaviour {
 	void Start () {
-		GetComponent<Resetable>().OnReset += delegate() {
+		GameStateMaster.Instance.OnGameStart += delegate() {
 			SimplePool.Despawn(gameObject);
 		};
 	}
