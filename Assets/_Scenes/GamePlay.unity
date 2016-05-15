@@ -271,7 +271,7 @@ MonoBehaviour:
     DamageAmount: 1
     Scale: 1
     Speed: 15
-  Frequency: 0.1
+  CoolDownTime: 0.1
 --- !u!1 &291267941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1903,7 +1903,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 329086489}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8005f9435acb411781938d0d00ab315, type: 3}
+  m_Script: {fileID: 11500000, guid: 5161410f5c4d14a4b8c3da9ae24c5a1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &351216196
@@ -2195,7 +2195,7 @@ MonoBehaviour:
     DamageAmount: 0.3
     Scale: 0.5
     Speed: 20
-  Frequency: 0.05
+  CoolDownTime: 0.05
 --- !u!1 &590231802
 GameObject:
   m_ObjectHideFlags: 0
@@ -2422,7 +2422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa7f8a750cda4b9094f3fbfaae95ff2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 1
+  MaxHealth: 20
 --- !u!114 &825724644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2443,7 +2443,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 825724640}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b38cbbc35bace47a48b61495a9dbff28, type: 3}
+  m_Script: {fileID: 11500000, guid: 4134bc69c467e465091fc095d3a3d439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!50 &825724646
@@ -3764,7 +3764,7 @@ MonoBehaviour:
     DamageAmount: 0.3
     Scale: 0.5
     Speed: 20
-  Frequency: 0.05
+  CoolDownTime: 0.05
 --- !u!1 &2003688349
 GameObject:
   m_ObjectHideFlags: 0

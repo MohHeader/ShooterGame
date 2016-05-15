@@ -1,33 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(EnemyShip))]
+/// <summary>
+/// Kamikaze ( def : were suicide attacks by military aviators from the Empire of Japan against Allied naval vessels )
+/// https://en.wikipedia.org/wiki/Kamikaze
+/// 
+/// The Behavior :: 
+/// On Spawn, the ship rotates toward the player, & move forward in its direction.
+/// 
+/// </summary>
+
 [RequireComponent(typeof(MoveInDirection))]
 [RequireComponent(typeof(RotateToTarget))]
-[RequireComponent(typeof(Resetable))]
-public class Kamikaze : MonoBehaviour {
-
-	EnemyShip ship;
+public class Kamikaze : EnemyShipBehavior {
 	MoveInDirection movement;
 	RotateToTarget rotate;
-	Resetable resetable;
 
-	void Awake () {
-		ship		= GetComponent<EnemyShip> ();
+	protected override void Awake () {
+		base.Awake ();
 		movement	= GetComponent<MoveInDirection> ();
 		rotate		= GetComponent<RotateToTarget> ();
-		resetable	= GetComponent<Resetable> ();
 	}
 
-	void OnEnable(){
-		resetable.OnReset += Reset;
-	}
-
-	void OnDisable(){
-		resetable.OnReset -= Reset;
-	}
-
-	void Reset(){
+	protected override void Reset(){
 		if(ship.player == null){
 			Debug.LogError("Enemy Ship with no Target Player !");
 			return;

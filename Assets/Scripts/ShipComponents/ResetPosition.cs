@@ -1,14 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Reset GameObject position to it's initial position.
+/// Example : Player Ship, return to it's initial position when Game restarted.
+/// </summary>
+
 [RequireComponent(typeof(Resetable))]
 public class ResetPosition : MonoBehaviour {
-	Vector3 OriginalPosition;
+	Vector3 InitialPosition;
 
 	void Start () {
-		OriginalPosition = transform.position;
-		GetComponent<Resetable> ().OnReset += delegate() {
-			transform.position = OriginalPosition;
-		};
+		InitialPosition = transform.position;
+	}
+
+	void OnEnable(){
+		GetComponent<Resetable> ().OnReset += Reset;
+	}
+
+	void OnDisable(){
+		GetComponent<Resetable> ().OnReset -= Reset;
+	}
+
+	void Reset(){
+		transform.position = InitialPosition;
 	}
 }

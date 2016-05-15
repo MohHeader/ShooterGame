@@ -9,7 +9,7 @@ public class ScoreComboMaster : MonoBehaviour {
 	void Start () {
 		ScoreMaster.Instance.OnScoreChange += ScoreChange;
 		GameStateMaster.Instance.OnGameStart += delegate() {
-			CancelInvoke("StopComboMode");
+			CancelInvoke("CalculateCombo");
 		};
 	}
 	
@@ -18,12 +18,12 @@ public class ScoreComboMaster : MonoBehaviour {
 			Hits = 0;
 			scoreStart = score;
 			comboMode = true;
-			Invoke ("StopComboMode", 2);
+			Invoke ("CalculateCombo", 2);
 		}
 		Hits++;
 	}
 
-	void StopComboMode(){
+	void CalculateCombo(){
 		comboMode = false;
 
 		int delta = ScoreMaster.Instance.Score - scoreStart;

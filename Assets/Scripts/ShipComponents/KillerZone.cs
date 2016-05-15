@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Killer zone, describes what Edge should despawn the gameobject when reached,
+/// For Example : Player Bullets, would be destroyed when reached the top edge.
+/// With four toggable edges, to provide maximum amount of control
+/// </summary>
 public class KillerZone : MonoBehaviour {
 	public bool BottomZone;
 	public bool TopZone;

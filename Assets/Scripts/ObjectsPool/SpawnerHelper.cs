@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Just an helper to get Random positoin to Spawn on.
+/// </summary>
+
 public static class SpawnerHelper {
 
 	public static Vector3 Top(){

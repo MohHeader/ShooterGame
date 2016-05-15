@@ -23,15 +23,19 @@ public class EnemySpawnerMaster : MonoBehaviour {
 		}
 
 		PrototypeDict = new Dictionary<ShipBehavior, GameObject> ();
+		// Loop Enemy ships Data & Create a GameObject Prototype, for each Unique Behavior.
 		foreach (var ship in shipsData.ships) {
 			if (PrototypeDict.ContainsKey (ship.shipBehavior) == false) {
 				GameObject go = Instantiate<GameObject> (EnemyShipBasePrefab);
 				go.SetActive (false);
 				go.name = "Proto_" + ship.shipBehavior;
 				go.transform.SetParent (transform);
+
+				// Add Basic Components
 				go.AddComponent<EnemyShip> ();
 				go.AddComponent<EnemyShipBehaviourComponents> ().SetShip (ship);
 				go.AddComponent<EnemyShipDataComponents> ();
+
 				PrototypeDict [ship.shipBehavior] = go;
 			}
 		}
@@ -48,14 +52,9 @@ public class EnemySpawnerMaster : MonoBehaviour {
 		go.name = "Ship_" + data.shipBehavior;
 
 		EnemyShip ship =  go.GetComponent<EnemyShip>();
-
-		if (ship == null) {
-			Destroy (go);
-		} else {
-			ship.SetPlayerShip (TargetPlayer);
-			go.GetComponent<EnemyShipDataComponents> ().SetShip (data);
-			ship.Reset ();
-		}
+		ship.SetPlayerShip (TargetPlayer);
+		go.GetComponent<EnemyShipDataComponents> ().SetShip (data);
+		ship.Reset ();
 	}
 
 	void Update(){

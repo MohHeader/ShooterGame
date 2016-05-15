@@ -5,8 +5,8 @@ using System.Collections;
 public class Health : MonoBehaviour {
 	[Range(1, 99)]
 	public float MaxHealth;
-	public float CurrentHealth { get; protected set; }
 
+	float CurrentHealth;
 	Resetable resetable;
 
 	// Events

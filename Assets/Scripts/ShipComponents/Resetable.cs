@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Resetable. is a Component used per GameObjects to have it's own LifeCyecle, beside the GameStateMaster LifeCycle
+/// Useful for GameObjects Spawned through Object Pool.
+/// </summary>
+
 public class Resetable : MonoBehaviour {
 
 	public event System.Action OnReset;

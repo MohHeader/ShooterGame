@@ -1,11 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum ShipBehavior {
-	None,
-	Kamikaze
-}
-
 public class EnemyShipBehaviourComponents : MonoBehaviour {
 	public void SetShip(EnemyShipData data){
 		switch (data.shipBehavior) {

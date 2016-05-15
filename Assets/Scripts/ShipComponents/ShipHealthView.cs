@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Used to Show damage to Player ship using different set of sprites.
+/// </summary>
+
 public class ShipHealthView : MonoBehaviour {
 	public Sprite[] HealthLevelsSprites;
 	int SpriteIndex = -1;

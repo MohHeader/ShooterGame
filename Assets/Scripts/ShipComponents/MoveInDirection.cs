@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+/// <summary>
+/// Useful for Ships & Bullets that want to move in one direction.
+/// </summary>
 [RequireComponent(typeof(Movement))]
 public class MoveInDirection : MonoBehaviour {
 	Movement movment;

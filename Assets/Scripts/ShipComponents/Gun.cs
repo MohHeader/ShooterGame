@@ -5,8 +5,8 @@ public class Gun : MonoBehaviour {
 	public GameObject Bullet;
 	public BulletData data;
 
-	public float Frequency;
-	float untilFrequency = 0;
+	public float CoolDownTime;
+	float untilCoolDown = 0;
 
 	static Transform BulletsParent;
 
@@ -20,10 +20,12 @@ public class Gun : MonoBehaviour {
 		if (GameStateMaster.IsPlaying () == false)
 			return;
 		
-		untilFrequency += Time.deltaTime;
+		untilCoolDown += Time.deltaTime;
+	}
 
-		if (untilFrequency >= Frequency &&  Input.GetButton ("Fire1")) {
-			untilFrequency = 0;
+	public void Fire(){
+		if (untilCoolDown >= CoolDownTime) {
+			untilCoolDown = 0;
 
 			GameObject go = SimplePool.Spawn (Bullet, transform.position, Quaternion.identity);
 			go.transform.SetParent (BulletsParent);
