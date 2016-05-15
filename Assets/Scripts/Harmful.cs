@@ -10,13 +10,20 @@ public class Harmful : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D other) {
 		if (other.gameObject.CompareTag (EnemyTag) == false)
 			return;
-		
+
 		Health health = other.gameObject.GetComponent<Health> ();
 		if (health != null) {
+
 			health.ChangeHealthBy (-Amount);
 
-			if (SelfDestroy)
-				SimplePool.Despawn (gameObject);
+			if (SelfDestroy) {
+				health = gameObject.GetComponent<Health> ();
+				if (health != null) {
+					health.ChangeHealthBy (-health.MaxHealth);
+				}else {
+					SimplePool.Despawn (gameObject);
+				}
+			}
 		}
 	}
 }

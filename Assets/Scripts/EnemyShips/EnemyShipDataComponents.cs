@@ -4,6 +4,7 @@ using System.Collections;
 [RequireComponent(typeof(Movement))]
 [RequireComponent(typeof(Harmful))]
 [RequireComponent(typeof(Health))]
+[RequireComponent(typeof(ShipExplosion))]
 [RequireComponent(typeof(AddScoreOnHit))]
 [RequireComponent(typeof(KillerZone))]
 public class EnemyShipDataComponents : MonoBehaviour {
@@ -14,6 +15,7 @@ public class EnemyShipDataComponents : MonoBehaviour {
 	Health health;
 	AddScoreOnHit scoreOnHit;
 	KillerZone killerZone;
+	ShipExplosion explosion;
 
 	void Awake(){
 		spriteRenderer = GetComponentInChildren<SpriteRenderer> ();
@@ -23,11 +25,12 @@ public class EnemyShipDataComponents : MonoBehaviour {
 			spriteRenderer = go.AddComponent<SpriteRenderer> ();
 		}
 
-		movment = gameObject.GetComponent<Movement> ();
-		harmful = gameObject.GetComponent<Harmful> ();
-		health  = gameObject.GetComponent<Health> ();
-		scoreOnHit = gameObject.GetComponent<AddScoreOnHit> ();
-		killerZone = gameObject.GetComponent<KillerZone> ();
+		movment		= gameObject.GetComponent<Movement> ();
+		harmful		= gameObject.GetComponent<Harmful> ();
+		health		= gameObject.GetComponent<Health> ();
+		scoreOnHit	= gameObject.GetComponent<AddScoreOnHit> ();
+		killerZone	= gameObject.GetComponent<KillerZone> ();
+		explosion	= gameObject.GetComponent<ShipExplosion> ();
 	}
 
 	public void SetShip(EnemyShipData data){
@@ -55,10 +58,12 @@ public class EnemyShipDataComponents : MonoBehaviour {
 		}
 
 		if (data.MaxHealth > 0) {
+			explosion.enabled = true;
 			health.enabled = true;
 			health.MaxHealth = data.MaxHealth;
 		} else {
 			health.enabled = false;
+			explosion.enabled = false;
 		}
 
 		if (data.ScoreToAdd > 0) {

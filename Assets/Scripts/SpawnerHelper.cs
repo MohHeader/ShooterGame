@@ -8,9 +8,6 @@ public static class SpawnerHelper {
 	}
 
 	public static Vector3 WideTop(float percentage = 1.5f){
-		Vector3 ScreenSize = Camera.main.ScreenToWorldPoint(new Vector3 (Camera.main.pixelWidth
-			, Camera.main.pixelHeight));
-
-		return new Vector3(Random.Range(-(1+percentage)*ScreenSize.x, (1+percentage)*ScreenSize.x), ScreenSize.y, 0);
+		return new Vector3(Random.Range(-(1+percentage)*ScreenSize.Size.x, (1+percentage)*ScreenSize.Size.x), ScreenSize.Size.y, 0);
 	}
 }
